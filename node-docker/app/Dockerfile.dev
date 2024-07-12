@@ -1,12 +1,10 @@
 ARG BUILD_IMAGE=node:20.15-alpine3.20
 
-ARG DIR=default
-
 FROM ${BUILD_IMAGE} AS dev
 
 RUN npm install -g pnpm
 
-WORKDIR /${DIR}
+WORKDIR /app
 
 COPY package*.json ./
 

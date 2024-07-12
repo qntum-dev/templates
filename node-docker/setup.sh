@@ -19,10 +19,15 @@ cd "$project_path" || exit
 # cd "$project_name" || exit
 
 # Run npm init --yes
-npm init --yes
 
 # Create subdirectories
+npm init --yes
+
+
 mkdir app db middlewares routes utils
+
+mv package.json ../"$project_name"/app/package.json
+
 
 echo '/"$project_name"/app/'
 
