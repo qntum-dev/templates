@@ -47,6 +47,9 @@ mv ../docker-compose.yml ../"$project_name"/docker-compose.yml
 
 mv ../docker-compose.dev.yml ../"$project_name"/docker-compose.dev.yml
 
+sleep 4
+
+
 rm -rf ../app
 
 
