@@ -49,10 +49,10 @@ mv ../docker-compose.dev.yml ../"$project_name"/docker-compose.dev.yml
 
 rm -rf ../app
 
-rm -rf ../postgres
 
 rm -rf ../db
 
+rm -rf ../postgres
 
 
 
