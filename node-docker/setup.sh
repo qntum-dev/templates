@@ -77,9 +77,9 @@ rm -rf ../db
 
 cd ../"$project_name"
 
-touch docker-compose.heredoc.yml
+touch docker-compose.yml
 
-cat <<EOF >> docker-compose.heredoc.yml
+cat <<EOF >> docker-compose.yml
         
 services:
     server:
@@ -91,26 +91,26 @@ services:
 EOF
 
 if [[ "$3" == "y" || "$4" == "y" ]]; then
-    cat <<EOF >> docker-compose.heredoc.yml
+    cat <<EOF >> docker-compose.yml
         depends_on:
 EOF
 fi
 
 if [ "$3" == "y" ]; then
-    cat <<EOF >> docker-compose.heredoc.yml
+    cat <<EOF >> docker-compose.yml
             postgres:
                 condition: service_healthy
 EOF
 fi
 
 if [ "$4" == "y" ]; then
-    cat <<EOF >> docker-compose.heredoc.yml
+    cat <<EOF >> docker-compose.yml
             redis:
                 condition: service_healthy
 EOF
 fi
 
-cat <<EOF >> docker-compose.heredoc.yml
+cat <<EOF >> docker-compose.yml
         ports:
             - "\${PORT}:\${PORT}"
         networks:
@@ -118,7 +118,7 @@ cat <<EOF >> docker-compose.heredoc.yml
 EOF
 
 if [ "$3" == "y" ]; then
-    cat <<EOF >> docker-compose.heredoc.yml
+    cat <<EOF >> docker-compose.yml
     postgres:
         build:
             context: ./postgres
@@ -139,7 +139,7 @@ EOF
 fi
 
 if [ "$4" == "y" ]; then
-    cat << EOF >> docker-compose.heredoc.yml
+    cat << EOF >> docker-compose.yml
     redis:
         image: redis/redis-stack-server:7.2.0-v5
         build: 
@@ -159,7 +159,7 @@ if [ "$4" == "y" ]; then
 EOF
 fi
 
-cat <<EOF >> docker-compose.heredoc.yml
+cat <<EOF >> docker-compose.yml
 networks:
     app-network:
         driver: bridge
